@@ -1,2 +1,2 @@
 # FingerPrint-Recognition
-MATLAB GUIe for Finger Print Recognition
+MATLAB GUI for Finger Print Recognition
