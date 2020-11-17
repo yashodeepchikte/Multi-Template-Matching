@@ -1,0 +1,36 @@
+the main function should be directly executable
+the inputs are taken form the inputs folder
+	input folder structure
+	--> < sumbext_number >
+		-->  < images >    --> this will contain the images of sumbect
+		-->  < templates>  --> this will contain templates created manually
+		-->  < processed images >  -->  this will be filled by out code for each subject
+	
+
+
+
+function description ----> 
+def read_inputs () # --> this function should read the files from inputs and store them in a dictionary
+def run_template_matching --> this function will run different template matching on the images
+def run_max_finder --> this function will take all the probability values from diufferent templates currosponding to each pixel and only keep the max value
+def non_max_supression --> this will work like convolution and only the max probablity will be stored in that window
+def run_union ---> this sunction will unionise the over lapping rectangles with more than 6% overlap
+
+
+main function description --> 
+	inputs = read_inputs()      <-- inputs will now be a dictionary with keys as subject_number and values which is also a dictionary 
+					containing { images: [list of images], templates : [list of templates], results: [ list of path to correct result folder for each subject image] }
+
+	for subject in inputs: 
+		images = inputs[subject][images]
+		templates = inputs[subject][templates]
+		results_directory = inputs[subject][results]
+	
+		for i, image in enumerate(images):
+			temp_images = run_template_matching (image, templates)
+			temp_image = run_max_finder(temp_images)
+			temp_image = non_max_supression (temp_images)
+			result_image = run_union(temp_image)
+			cv.write(resultimage, results_directory[i])
+
+
