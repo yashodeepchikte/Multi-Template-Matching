@@ -3,7 +3,7 @@ import cv2 as cv
 from showImage import show_image
 from template_matchinng import template_matching
 from  NMS_2 import NMS
-
+from create_template import create_template
 
 if __name__ == "__main__":
     
@@ -17,6 +17,10 @@ if __name__ == "__main__":
             results = inputs[subject]["results"]
             templates = inputs[subject]["templates"]
             templates = [cv.imread(template_path, 0) for template_path in templates]
+            T = []
+            for template in templates:
+                T += create_template(template)
+             
             for i, image_path in enumerate(images):
                 image = cv.imread(image_path)
                 img_gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)

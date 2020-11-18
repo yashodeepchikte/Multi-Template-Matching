@@ -15,10 +15,6 @@ from matplotlib import pyplot as plt
 
 def create_template(img):
 
-	# read image as greyscale  
-	img = cv2.imread(img,1);
-
-
 	#tempt1 = cv2.rotate(image, cv2.ROTATE_90_COUNTERCLOCKWISE) 
 	t1 = img
 	t2 = cv2.rotate(img, cv2.ROTATE_90_COUNTERCLOCKWISE)
