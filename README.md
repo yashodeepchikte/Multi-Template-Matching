@@ -61,9 +61,13 @@ This is the list of dependencies for running this application.
 
 
  * **Opencv**
-
  * **Pandas**
  * **Numpy**
  * **Scipy**
  * **Matplotlib**
  
+
+## Contributers
+[![Yashodeep DP](https://avatars0.githubusercontent.com/u/32036809?s=50&u=4a0ed688487978d46ad6305114da9584cddd1fa8&v=4)](https://github.com/yashodeepchikte)
+[![Kailash DP](https://avatars0.githubusercontent.com/u/50366736?s=50&v=4)](https://github.com/Kailash303904)
+[![Aditya DP](https://avatars0.githubusercontent.com/u/32036822?s=50&v=4)](https://github.com/adityabhandarkar07)
