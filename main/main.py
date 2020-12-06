@@ -1,3 +1,13 @@
+"""
+@author: Yashodeep
+@Roll number: 170003060
+
+@Input: 
+Simply run this file 
+
+@Output: 
+All the processed images will be saved in subject folders the inputs folder itself 
+"""
 from read_inputs import read_inputs 
 import cv2 as cv
 from showImage import show_image
@@ -10,9 +20,9 @@ if __name__ == "__main__":
     (inputs, success) = read_inputs()
     num_subjects = len(inputs)
     if success:      
-        print("Progress -->  {0: >4} % done".format(0))
+        print("Starting processing")
         for a, subject in enumerate(inputs):
-            print("Processing ", subject,"|| overall Progress -->  {0: >3} % done".format(((a+1)/num_subjects)*100))
+            # print("Processing ", subject,"|| overall Progress -->  {0: >3} % done".format(((a+1)/num_subjects)*100))
             images = inputs[subject]["images"]
             results = inputs[subject]["results"]
             templates = inputs[subject]["templates"]
@@ -22,7 +32,9 @@ if __name__ == "__main__":
                 T += create_template(template)
              
             for i, image_path in enumerate(images):
-                image = cv.imread(image_path)
+                print("Processing ", subject,"||  Progress -->  {0: >3} % done".format(((i+1)/len(images))*100))
+
+                image = cv.imread(i age_path)
                 img_gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
                 probablity_maps = template_matching(img_gray, templates, threshold=0.7)
                 points = []
@@ -35,7 +47,7 @@ if __name__ == "__main__":
                     cv.rectangle(image, (xi, yi), (xi + wi, yi + hi), (0,0,255), 1)                
                 cv.imwrite(results[i], image )
         print("The program execution is completed")
-        print("Please check the results stored in the results folder for each subject")
+        print("Please check the results stored in the processed images folder for each subject inside the inputs folder")
     else:
         print("Program failed to read the inputs")
         
